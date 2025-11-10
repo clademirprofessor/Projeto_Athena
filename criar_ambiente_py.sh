@@ -1,5 +1,19 @@
 
 #!/bin/bash
+# Criar diretório se não existir
+mkdir -p ~/Athena/_VOZES/
+
+# Baixar o modelo
+cd ~/Athena/_VOZES/
+wget https://alphacephei.com/vosk/models/vosk-model-pt-fb-v0.1.1-20220516_2113.zip
+
+# Descompactar
+unzip vosk-model-pt-fb-v0.1.1-20220516_2113.zip
+
+# Remover zip (opcional)
+rm vosk-model-pt-fb-v0.1.1-20220516_2113.zip
+
+
 
 # Atualiza a lista de pacotes e instala o Python 3 e o venv, se ainda não estiverem instalados
 sudo apt-get update
@@ -26,9 +40,12 @@ cd ~/athena_voz_ambiente_virtual
 python3 -m venv venv
 # Ativa o ambiente virtual
 source venv/bin/activate
+
+
+
+
+
 # Instala o PyAudio e suas dependências no sistema operacional
-
-
 sudo apt install python3-pyaudio
 
 
@@ -48,30 +65,36 @@ pip install gTTS
 #SpeechRecognition: biblioteca para reconhecimento de fala em Python.
 pip install SpeechRecognition
 
-#Instala outras bibliotecas úteis
-pip install numpy
-pip install requests
-pip install Flask
-pip install Flask-SocketIO
-pip install eventlet
-pip install transformers
-pip install torch
-pip install soundfile
-pip install pydub
-pip install librosa
-pip install scikit-learn
-pip install matplotlib
-pip install seaborn
-pip install pandas
-pip install nltk
-pip install spacy
-pip install opencv-python
-pip install moviepy
-pip install youtube-dl
-pip install ffmpeg-python
-pip install Pillow
-pip install jupyterlab
-pip install notebook
+pip install vosk sounddevice numpy
+
+#Instala outras bibliotecas úteis (8,1GB)
+#pip install numpy
+#pip install requests
+#pip install Flask
+#pip install Flask-SocketIO
+#pip install eventlet
+#pip install transformers
+#pip install torch
+#pip install soundfile
+#pip install pydub
+#pip install librosa
+#pip install scikit-learn
+#pip install matplotlib
+#pip install seaborn
+#pip install pandas
+#pip install nltk
+#pip install spacy
+#pip install opencv-python
+#pip install moviepy
+#pip install youtube-dl
+#pip install ffmpeg-python
+#pip install Pillow
+#pip install jupyterlab
+#pip install notebook
+
+
+source ~/athena_voz_ambiente_virtual/venv/bin/activate
+
 # Informa o usuário que o ambiente virtual foi criado e ativado
 echo "Ambiente virtual criado e ativado em ~/athena_voz_ambiente_virtual/venv"
 echo "Para ativar o ambiente virtual no futuro, execute: source ~/athena_voz_ambiente_virtual/venv/bin/activate"

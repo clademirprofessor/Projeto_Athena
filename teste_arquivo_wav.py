@@ -7,7 +7,7 @@ if wf.getnchannels() != 1 or wf.getsampwidth() != 2 or wf.getframerate() not in 
     print("Arquivo deve ser mono PCM 16-bits, 1 canal, taxa 16000Hz (ou compatível).")
     sys.exit(1)
 
-model = Model("/home/big/Área de Trabalho/athena/__VOZES/vosk-model-small-pt-0.3/")  # ex: ~/vosk-model-pt-br
+model = Model("/home/big/Área de Trabalho/Athena/_VOZES/vosk-model-pt-fb-v0.1.1-20220516_2113/")  # ex: ~/vosk-model-pt-br
 rec = KaldiRecognizer(model, wf.getframerate())
 
 while True:
